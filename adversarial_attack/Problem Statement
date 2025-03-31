@@ -1,0 +1,54 @@
+This project focuses on character-level adversarial attacks in the context of text classification using machine learning. It was developed as part of a homework assignment for the Ethical AI course, with the objective of exploring the vulnerabilities of standard machine learning models to adversarial perturbations—specifically in natural language processing (NLP) tasks.
+
+The assignment revolves around designing both untargeted and targeted adversarial attacks on a trained sentiment classification model, using only character-level modifications. The project demonstrates how even slight, human-imperceptible changes to text can dramatically affect model predictions—raising concerns around the robustness and ethical deployment of AI systems in real-world applications.
+
+The entire task is implemented in Python using the scikit-learn library, with the model trained on the Rotten Tomatoes dataset using a Logistic Regression classifier and TF-IDF vectorizer.
+
+⸻
+
+🧠 Problem Description
+
+The primary goal was to evaluate the susceptibility of a sentiment classification model to adversarial examples—texts intentionally perturbed to fool the model. The problem was divided into four structured parts:
+
+⸻
+
+🔹 Part 1 – Model Training and Evaluation
+	•	Trained a Logistic Regression classifier using TF-IDF vectorization on the Rotten Tomatoes dataset.
+	•	Evaluated the model’s performance on both training and testing sets using standard metrics: accuracy, precision, recall, F1 score, and confusion matrix.
+	•	Observed the model’s generalization capabilities and baseline behavior before introducing any adversarial modifications.
+
+⸻
+
+🔹 Part 2 – Character-Level Modification Function
+	•	Created a character_modify() function capable of applying various random character-level edits to individual words.
+	•	Implemented multiple perturbation strategies:
+	•	Whitespace insertion
+	•	Character substitution (e.g., ‘a’ → ‘@’)
+	•	Character swapping
+	•	Character deletion
+	•	Character addition
+	•	The function was designed with built-in randomness and modularity to support both untargeted and targeted attack strategies.
+
+⸻
+
+🔹 Part 3 – Untargeted Attack
+	•	Developed an untargeted_attack() function that randomly perturbs 40% of the words in a given text using the character_modify() logic.
+	•	Applied the attack on test data and saved the adversarial examples.
+	•	Evaluated the model’s performance on these modified examples across five separate runs, calculating the average drop in classification performance.
+	•	Analyzed how random modifications impacted readability and the classifier’s robustness.
+
+⸻
+
+🔹 Part 4 – Targeted Attack
+	•	Designed a targeted_attack() function using a greedy selection algorithm to identify the most impactful words in a text—those that, when removed, cause the greatest drop in model confidence.
+	•	Strategically modified only the most critical words using character_modify() until the model changed its prediction.
+	•	Performed the attack only on test texts that were initially predicted correctly, to ensure effectiveness.
+	•	Evaluated the model’s performance over five separate runs and compared it with the untargeted attack.
+	•	Observed significantly higher performance degradation with targeted attacks, confirming the model’s reliance on specific influential words.
+
+⸻
+
+📊 Key Takeaways
+	•	Untargeted attacks caused a moderate performance drop but maintained sentence readability.
+	•	Targeted attacks led to a drastic drop in model accuracy and interpretability, often fooling the model by modifying a handful of critical words.
+	•	The experiments demonstrate the importance of robustness in NLP models and the ethical implications of deploying models in sensitive contexts where adversarial inputs may be used maliciously.
