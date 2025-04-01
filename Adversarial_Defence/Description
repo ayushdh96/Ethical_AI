@@ -1,0 +1,52 @@
+This repository contains an extension of adversarial attack for the untargeted attacks aimed at improving the robustness of a Logistic Regression (LR) sentiment classifier trained on the Rotten Tomatoes movie review dataset. The focus of this work is on adversarial training — a technique where we enhance the model’s generalization and resilience by exposing it to intelligently perturbed inputs (adversarial examples) during training.
+
+⸻
+
+🎯 Project Objective
+
+The primary goal is to fortify the Logistic Regression model from HW4 against untargeted character-level adversarial attacks. This is accomplished by generating k adversarial variants per training example using a custom attack function and retraining the model on this enriched dataset.
+
+⸻
+
+🛠️ Core Components
+	1.	adversarial_training()
+	•	For each example in the training set, generates k adversarial examples using the untargeted attack function (from HW4).
+	•	Saves both original and adversarial examples (along with their labels) into a single CSV file: adversarial_train_rotten-tomatoes.csv.
+	•	Ensures the test set is untouched, preserving proper evaluation boundaries.
+	2.	Training a New Model
+	•	Trains a new Logistic Regression model on the augmented training set with a fresh TF-IDF vectorizer.
+	•	Mimics the training pipeline from HW4 but leverages a more diverse dataset.
+	3.	Evaluation Function
+	•	Tests both the original and adversarial-trained models on:
+	•	Original test set
+	•	Adversarially perturbed test set
+	•	Reports evaluation metrics: Accuracy, Precision, Recall, and F1 Score.
+	4.	Experimental Loop
+	•	Runs the evaluation for multiple values of k ∈ [1, 2, 3, 4, 5].
+	•	Each configuration is repeated 5 times to account for randomness in adversarial example generation.
+	•	Averages the results across runs to report stable performance measures.
+
+⸻
+
+📊 Final Report Includes
+	•	A comprehensive table summarizing the performance of:
+	•	Original model on clean and adversarial test data.
+	•	Adversarially trained model across all k values on both test types.
+	•	A detailed discussion and analysis, including:
+	•	Which model variant performs best and why.
+	•	Whether adversarial training successfully mitigates the attack.
+	•	Limitations of the approach and suggestions for further robustness improvements.
+	•	Optionally: Graphs or visuals to support findings.
+
+⸻
+
+📚 Dependencies
+	•	Python 3.x
+	•	pandas, numpy
+	•	sklearn (for Logistic Regression, TF-IDF, and metrics)
+
+⸻
+
+📌 Note
+
+This project is self-contained and does not rely on external test data leaks. It includes its own .py file and a separate written report.
