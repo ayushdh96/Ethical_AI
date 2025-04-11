@@ -1,0 +1,61 @@
+# HW5 – Ethical AI: Privacy in Text Classification
+
+## 📌 Overview
+This project explores privacy concerns in text classification tasks using logistic regression. The goal is to demonstrate how a model can leak private user information, and then apply different anonymization techniques to correct the issue without significantly sacrificing accuracy.
+
+---
+
+## 🧠 Project Objectives
+
+1. **Detect Privacy Leak:**  
+   Show how a model can memorize and exploit usernames in the training data, leading to privacy violations.
+
+2. **Fix the Leak:**  
+   Implement a basic anonymization method by replacing usernames with a generic placeholder.
+
+3. **Explore Better Anonymization:**  
+   Compare aggressive anonymization (removing capitalized words) with a smarter method that maintains context and preserves model performance.
+
+---
+
+## 🧪 Methods Used
+
+- **Logistic Regression** (via `sklearn`)
+- **TF-IDF Vectorization** (no preprocessing)
+- Manual probing with `.predict()` and `.predict_proba()`
+- Custom anonymization techniques using regex and string manipulation
+
+---
+
+## 🗃 Files Included
+
+| File Name                         | Description                                         |
+|----------------------------------|-----------------------------------------------------|
+| `train_politics.csv`             | Original training data                              |
+| `test_politics.csv`              | Original testing data                               |
+| `train_politics_anonymized.csv`  | Usernames replaced with `@user`                     |
+| `test_politics_anonymized.csv`   | Usernames replaced with `@user`                     |
+| `train_politics_removed.csv`     | All capitalized words removed                       |
+| `test_politics_removed.csv`      | All capitalized words removed                       |
+| `train_politics_better.csv`      | Usernames replaced with `@user1`, `@user2`, ...     |
+| `test_politics_better.csv`       | Usernames replaced with `@user1`, `@user2`, ...     |
+| `Code_file.py`                | Code file with all logic and functions              |
+| `Report.pdf`                      | Final written report with results and discussion    |
+
+---
+
+## 📊 Summary of Results
+
+| Anonymization Type   | Test Accuracy | Test F1 Score | Notes                                     |
+|----------------------|---------------|---------------|-------------------------------------------|
+| No Anonymization     | 0.88          | 0.88          | Strong performance, but privacy leaked    |
+| Basic Username Mask  | 0.87          | 0.87          | Leak fixed, slight drop in accuracy       |
+| Capitalized Removed  | 0.81          | 0.82          | Accuracy drop due to loss of context      |
+| Better Anonymization | 0.86          | 0.86          | Leak fixed + preserved contextual clues   |
+
+
+---
+
+## 👨‍💻 Author
+
+Ayush – MS CS Student at Purdue University  
