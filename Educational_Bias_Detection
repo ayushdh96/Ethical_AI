@@ -1,0 +1,9 @@
+This project investigates potential biases in AI-driven recommendation systems used by online learning platforms such as Coursera, edX, and Khan Academy. We focus on analyzing how these systems may inadvertently favor or disadvantage learners based on demographic (e.g., gender, age, disability, education level) and behavioral (e.g., emotional state, help-seeking behavior) characteristics.
+
+Using the OULAD and ASSISTments datasets, we conduct fairness analysis through metrics such as Disparate Impact and Statistical Parity Difference. Our work involves:
+	•	Detecting systemic biases in learner outcomes
+	•	Analyzing how different groups (e.g., disabled students, frustrated learners) are supported by the platform
+	•	Comparing bias patterns across datasets
+	•	Recommending strategies for more equitable and inclusive learning systems
+
+This repository contains code, results, and documentation related to data preparation, fairness auditing, and comparative analysis. The goal is to support transparent, fair, and ethical AI in education.
