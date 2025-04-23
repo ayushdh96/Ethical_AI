@@ -1,0 +1,19 @@
+This project explores a simple approach to aligning language model outputs with human preferences using a lightweight RLHF-inspired framework. The workflow involves generating paired responses (agree/disagree) from an open-source language model, labeling them based on human preference, and training a logistic regression classifier to score new generations.
+
+🔧 What’s Included:
+	•	Generation of preference-based responses using google/flan-t5-base
+	•	Manual labeling of generated outputs to reflect preferred responses
+	•	Training a scoring function using Logistic Regression and TF-IDF embeddings
+	•	Re-ranking LLM outputs based on the trained scoring model
+	•	Output files containing original prompts, generated texts, and model scores
+
+🤖 Technologies Used:
+	•	Hugging Face Transformers (FLAN-T5)
+	•	scikit-learn (TF-IDF, Logistic Regression)
+	•	Python (pandas, csv, basic file handling)
+
+💡 Key Concepts:
+	•	Prompt-based generation
+	•	Text classification using logistic regression
+	•	Scoring and reranking LLM responses
+	•	Human preference modeling with minimal supervision
