@@ -1,0 +1,23 @@
+📌 Backdoor Attack on Misinformation Detection using Logistic Regression
+
+This project explores how backdoor attacks can manipulate machine learning classifiers in the domain of misinformation detection. The approach involves poisoning the training dataset by injecting specific trigger words or phrases into non-misinformation examples. When the trained model later sees the same trigger in a misinformation input, it is tricked into misclassifying it as non-misinformation.
+
+🔍 Key Features
+	•	Data Poisoning Functionality: Modular function to inject triggers into non-misinformation samples at configurable poison rates.
+	•	Model Training & Evaluation: Logistic Regression model trained on poisoned datasets and evaluated against both clean and poisoned test sets.
+	•	Trigger Variants:
+	•	A non-existent word (mamba2408)
+	•	An existing word (Kobe)
+	•	A phrase (greatest scorer of all time)
+	•	Poison Rate Experiments: Tested across 5 poison rates — 0.01, 0.1, 0.25, 0.5, and 0.9 — for all trigger types.
+	•	Visualization: Line graph comparing poisoned test accuracy across different triggers and poison rates.
+	•	Confusion Matrix Analysis: Detailed inspection of how backdoor attacks increase false negatives and reduce true positives on poisoned inputs.
+
+📈 Observations
+	•	Phrase-based triggers were more effective in degrading model performance, especially at higher poison rates.
+	•	Non-existent and real-word triggers had similar impacts, indicating the model’s generalization over unseen tokens.
+	•	Even low poison rates (e.g., 1%) introduced backdoors with measurable effect, suggesting potential stealthy attack avenues.
+
+📂 Project Structure
+	•	USERNAME_EC2.py: Core script containing poisoning and training functions.
+	•	report.docx: Full write-up including methodology, visualizations, tables, and analysis.
